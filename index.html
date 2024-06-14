@@ -1,37 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <title>Quiz</title>
-  </head>
-  <body>
-    <header>
-      <div class="toggle"><img src="assets/images/icon-sun-dark.svg" alt="sun" class="icon-sun"><input type="checkbox" id="theme-toggle" class="theme-toggle"><label for="theme-toggle" class="toggle-label"></label><img src="assets/images/icon-moon-dark.svg" alt="moon" class="icon-moon"></div>
-    </header>
-    <main>
-      <hgroup>
-        <h1 id="h1">Welcome to the <span class="span-h1">Frontend Quiz!</span></h1>
-        <p class="p-hgroup">Pick a subject to get started.</p>
-      </hgroup>
-      <section class="section-theme">
-        <article class="article-section"><span class="span-article1"><img src="assets/images/icon-html.svg" alt="icon-html"></span>
-          <h2 id="h2">HTML</h2>
-        </article>
-        <article class="article-section"><span class="span-article2"><img src="assets/images/icon-css.svg" alt="icon-css"></span>
-          <h2 id="h2">CSS</h2>
-        </article>
-        <article class="article-section"><span class="span-article3"><img src="assets/images/icon-js.svg" alt="icon-js"></span>
-          <h2 id="h2">Javascript</h2>
-        </article>
-        <article class="article-section"><span class="span-article4"><img src="assets/images/icon-accessibility.svg" alt="icon-accessibility"></span>
-          <h2 id="h2">Accessibility</h2>
-        </article>
-      </section>
-    </main>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg">
+  <link rel="stylesheet" href="style.css">
+  <title>Quiz</title>
+</head>
+<body>
+  <header>
+    <div class="toggle">
+      <img src="assets/images/icon-sun-dark.svg" alt="sun" class="icon-sun">
+      <input type="checkbox" id="theme-toggle" class="theme-toggle">
+      <label for="theme-toggle" class="toggle-label"></label>
+      <img src="assets/images/icon-moon-dark.svg" alt="moon" class="icon-moon">
+    </div>
+  </header>
+
+  <div class="progress-container">
+    <span id="question-counter"></span>
+  </div>
+
+  <main id="main-content">
+    <hgroup>
+      <h1 id="h1">Welcome to the <span class="span-h1">Frontend Quiz!</span></h1>
+      <p class="p-hgroup">Pick a subject to get started.</p>
+    </hgroup>
+
+    <section class="section-theme">
+      <article class="article-section">
+        <span class="span-article1"><img src="assets/images/icon-html.svg" alt="icon-html"></span>
+        <h2 id="h2">HTML</h2>
+      </article>
+      <article class="article-section">
+        <span class="span-article2"><img src="assets/images/icon-css.svg" alt="icon-css"></span>
+        <h2 id="h2">CSS</h2>
+      </article>
+      <article class="article-section">
+        <span class="span-article3"><img src="assets/images/icon-js.svg" alt="icon-js"></span>
+        <h2 id="h2">JavaScript</h2>
+      </article>
+      <article class="article-section">
+        <span class="span-article4"><img src="assets/images/icon-accessibility.svg" alt="icon-accessibility"></span>
+        <h2 id="h2">Accessibility</h2>
+      </article>
+    </section>
+  </main>
+
+  <div class="progress-container">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </div>
+
+  <div id="app"></div>
+
+  <script type="module" src="/main.js"></script>
+</body>
 </html>
