@@ -1,26 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const toggleSwitch = document.getElementById('theme-toggle');
-  const body = document.body;
-  const sunIcon = document.querySelector('.icon-sun');
-  const moonIcon = document.querySelector('.icon-moon');
-  const h1 = document.getElementById('h1');
-  const spanH1 = document.querySelector('.span-h1');
-  const pHgroup = document.querySelector('.p-hgroup');
-  const articleSections = document.querySelectorAll('.article-section');
-  const h2 = document.querySelectorAll('#h2');
+  const html = document.getElementById('html');
   const mainContent = document.getElementById('main-content');
   const app = document.getElementById('app');
+  const progressContainer = document.querySelector(".progress-container")
 
   let currentQuestion = 1;
   const totalQuestions = 10;
   let questionCounter;
   let progressBarFill;
-
-  toggleSwitch.addEventListener('change', function() {
-    // Logique pour changer le thème
-  });
-
-  h1.addEventListener('click', function() {
+  let correctAnswersCount = 0; 
+  html.addEventListener('click', function() {
     fetchAndDisplayQuestion();
   });
 
@@ -28,7 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('https://the-trivia-api.com/v2/questions')
       .then(response => response.json())
       .then(data => {
-        displayQuestion(data[0]);
+        if (currentQuestion <= totalQuestions) {
+          displayQuestion(data[0]);
+        } else {
+          displayFinalScore();
+        }
       })
       .catch(error => console.error('Error fetching questions:', error));
   }
@@ -64,18 +57,24 @@ document.addEventListener('DOMContentLoaded', function() {
           if (li.textContent === question.correctAnswer) {
             li.style.backgroundColor = 'green';
             li.style.color = 'white';
+          } else if (li === selectedAnswer) {
+            li.style.backgroundColor = 'red';
+            li.style.color = 'white';
           } else {
             li.style.backgroundColor = '';
             li.style.color = '';
           }
         });
+
+        if (selectedAnswer.textContent === question.correctAnswer) {
+          correctAnswersCount++;
+        }
+
         selectedAnswer.classList.remove('selected');
 
         setTimeout(fetchAndDisplayQuestion, 1000);
         currentQuestion++;
-        if (currentQuestion <= totalQuestions) {
-          updateQuestionCounter();
-        }
+        updateQuestionCounter();
       }
     });
 
@@ -84,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
     questionDiv.appendChild(submitButton);
     app.appendChild(questionDiv);
 
-    // Création et mise à jour du compteur de questions et de la barre de progression
     if (!questionCounter) {
       questionCounter = document.createElement('span');
       questionCounter.id = 'question-counter';
@@ -99,10 +97,28 @@ document.addEventListener('DOMContentLoaded', function() {
     updateQuestionCounter();
   }
 
-  // Fonction pour mettre à jour le compteur de questions et la barre de progression
   function updateQuestionCounter() {
-    questionCounter.textContent = `Question ${currentQuestion} of ${totalQuestions}`;
-    const progressPercentage = (currentQuestion / totalQuestions) * 100;
-    progressBarFill.style.width = `${progressPercentage}%`;
+    if (currentQuestion <= totalQuestions) {
+      questionCounter.textContent = `Question ${currentQuestion} of ${totalQuestions}`;
+      const progressPercentage = (currentQuestion / totalQuestions) * 100;
+      progressBarFill.style.width = `${progressPercentage}%`;
+    }
+  }
+
+  function displayFinalScore() {
+    app.innerHTML = ''; 
+    progressContainer.style.display = 'none'
+
+    const finalScoreDiv = document.createElement('div');
+    finalScoreDiv.classList.add('final-score');
+
+    const scoreText = document.createElement("section")
+    scoreText.innerHTML = `
+    <span class="correct">${correctAnswersCount} </span>
+    <p class="incorrect">out of ${totalQuestions}</p> 
+    `;
+
+    finalScoreDiv.appendChild(scoreText);
+    app.appendChild(finalScoreDiv);
   }
 });

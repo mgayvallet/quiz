@@ -139,9 +139,7 @@ h2 {
 
 .question {
   padding: 20px;
-  border: 1px solid #ccc;
   border-radius: 10px;
-  background-color: #fff;
 }
 
 .question p {
@@ -166,23 +164,19 @@ h2 {
   background-color: #f0f0f0;
 }
 
-.question li:hover {
-  background-color: #e0e0e0;
-}
-
 button {
   margin-top: 20px;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #007BFF;
+  background-color: #A729F5;
   color: white;
   font-size: 16px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #A729F5;
 }
 
 .progress-container {
@@ -199,14 +193,49 @@ button:hover {
   width: 100%;
   background-color: #f3f3f3;
   border-radius: 5px;
-  overflow: hidden;
   margin-top: 10px;
 }
 
 .progress-fill {
   height: 10px;
-  background-color: #007BFF;
+  background-color: #A729F5;
   width: 0%;
   transition: width 0.5s ease-in-out;
 }
-  
+
+
+.correct{
+  font-size: 88px;
+  font-weight: 500;
+  line-height: 88px;
+  color: #313E51;
+}
+
+.incorrect{
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #626C7F;
+}
+
+.final-score{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 327px;
+  height:242px;
+  padding: 32px 0px 0px 0px;
+  border-radius: 12px;
+  margin-top: 160px;
+  margin-left: 15px;
+  background-color: #fff;
+}
+
+.btn{
+  width: 327px;
+  height: 56px;
+  padding: 12px 0px 0px 0px;
+  gap: 16px;
+  border-radius: 12px 0px 0px 0px;
+  background-color: #A729F5;  
+}
