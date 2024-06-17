@@ -145,7 +145,6 @@ h2 {
 .question {
   padding: 20px;
   border-radius: 10px;
-  background-color: #fff;
 }
 
 .question p {
@@ -217,6 +216,7 @@ button {
   height: 10px;
   background-color: #a729f5;
   width: 0%;
+  border-radius: 104px;
   transition: width 0.5s ease-in-out;
 }
 
@@ -367,18 +367,22 @@ button:hover {
 }
 
 
-.dark-theme .article-section{
+.dark-theme .article-section,
+.dark-theme .answer-item{
   background-color: #3B4D66;
+  border-style: none;
 }
 
 .dark-theme #main-content{
   color: white;
 }
 
-.dark-theme .span-h1{
+.dark-theme .span-h1,
+.dark-theme {
   color: white;
 }
 
-.dark-theme .p-hgroup{
+.dark-theme .p-hgroup,
+.dark-theme #question-counter{
   color: #ABC1E1;
 }
