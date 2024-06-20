@@ -161,7 +161,7 @@ function displayFinalScore() {
   scoreCard.classList.add('score-card');
 
   const divHtml = document.createElement('div')
-  divHtml.classList.add("elie")
+  divHtml.classList.add("divName")
   scoreCard.appendChild(divHtml)
 
   const icon = document.createElement('img');

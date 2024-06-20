@@ -324,7 +324,7 @@ button:hover {
   color: #626C7F;
 }
 
-.elie {
+.divName {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -385,4 +385,17 @@ button:hover {
 .dark-theme .p-hgroup,
 .dark-theme #question-counter{
   color: #ABC1E1;
+}
+
+.dark-theme .h2Score,
+.dark-theme .pScore,
+.dark-theme .phtml,
+.dark-theme .score,
+.dark-theme .total-score
+{
+  color: white;
+}
+
+.dark-theme .score-card{
+  background-color: #3B4D66;
 }
